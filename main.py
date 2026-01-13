@@ -46,7 +46,6 @@ for linha in tabela.index:
 
     # Passo 4: Cadastrar 1 produto novo
     pyautogui.click(x=811, y=271) # clicar no botão de novo produto
-    #Código do produto
     codigo = str(tabela.loc[linha, "codigo"])
     marca = str(tabela.loc[linha, "marca"])
     tipo = str(tabela.loc[linha, "tipo"])
@@ -54,6 +53,11 @@ for linha in tabela.index:
     preco_unitario = str(tabela.loc[linha, "preco_unitario"])
     custo = str(tabela.loc[linha, "custo"])  
     obs = str(tabela.loc[linha, "obs"]) 
+    
+    
+    
+    #Código do produto
+    
 
      #Código do produto
     pyautogui.write(codigo)
@@ -74,8 +78,11 @@ for linha in tabela.index:
     pyautogui.write(custo)
     pyautogui.press("tab")#passar para o proximo campo
     #Observações
-    pyautogui.write(obs)
-    pyautogui.press("tab")#passar para o proximo campo      
+    if obs != "nan":
+        pyautogui.write(obs)
+    pyautogui.press("tab")#passar para o proximo campo   
+
+    pyautogui.press("enter") # salvar o produto   
 
 
 
